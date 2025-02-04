@@ -66,7 +66,7 @@ export default function Feed() {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
-      <h2 style={{ textAlign: 'center' }}>Feed</h2>
+      {/* <h2 style={{ textAlign: 'center' }}>Feed</h2> */}
 
       <motion.div
         style={{
@@ -86,12 +86,19 @@ export default function Feed() {
         }}
         initial={{ opacity: 0 }}
         animate={{
-          opacity: translateY / maxTranslateY,
-          y: translateY,
+          opacity: isLoading ? 100 : translateY / maxTranslateY,
+          y: isLoading ? 70 :  translateY,
           rotate: (translateY / maxTranslateY) * 360,
         }}
       >
-        <p>↓</p>
+        <motion.p 
+        animate={{
+          rotate: isLoading ? -360 : 0,
+          transition: {
+            rotate: isLoading ? { repeat: Infinity, duration: .4, ease: "linear" } : undefined,
+          },
+        }}
+      >⭯</motion.p>
       </motion.div>
 
       {posts.map((post) => (
