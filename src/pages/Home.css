@@ -1,0 +1,17 @@
+.cardsWrapper{
+    border: 2px solid green;
+    position: relative;
+    height: 300px;
+    width: 200px;
+}
+
+.card{
+    padding: 2rem;
+    border:2px solid red;
+    border-radius: .5rem;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    user-select: none;
+    position: absolute;
+}
